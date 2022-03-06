@@ -186,15 +186,17 @@ console.log(add(5, 5));
 function calculate (command, a, b) {
   switch (command) {
     case 'add' :
-      console.log(a + b);
+      return a + b;
     case 'substract' :
-      console.log(a - b);
+      return a - b;
     case 'divide' :
-      console.log(a / b);
+      return a / b;
     case 'multiply' :
-      console.log(a * b);
+      return a * b;
     case 'reminder' :
-      console.log(a % b);
+      return a % b;
+    default: 
+      throw Error('unknown command'); 
   }
 }
 
