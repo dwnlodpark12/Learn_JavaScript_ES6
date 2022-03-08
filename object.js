@@ -105,4 +105,22 @@ console.log(user); // {name: 'coder', age: 20}
 // user 와 user2 에 할당된 reference가 같은곳을 바라보고 있기 때문! 
 
 // old way
+const user3 = {};
+for (let key in user) {
+  user3[key] = user[key];
+}
+console.log(user3);
+
 // new way
+// const user4 = {};
+// Object.assign(user4, user);
+const user4 = Object.assign({}, user);
+console.log(user4);
+
+//another example
+const fruit1 = { color: 'red' }; 
+const fruit2 = { color: 'blue', size: 'big' }; 
+const mixed = Object.assign({}, fruit1, fruit2);
+console.log(mixed.color);     // blue
+console.log(mixed.size);    // big
+// why? 뒤에 나오는 인자에서 앞서 동일한 property 가 있다면 덮어 씌워지기 때문!! 
