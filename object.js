@@ -91,6 +91,18 @@ for (key in me) {
 
 // for (value of iterable)
 const array = [1, 2, 3, 4, 5];
-for (key of array) {
-  console.log(key);
+for (value of array) {
+  console.log(value);
 }
+
+// 7. fun cloning 
+// Object.assign(dest, [obj1, obj2, obj3...])
+const user = {name: 'hyerin', age: 20}
+const user2 = user;
+user2.name = 'coder';
+console.log(user); // {name: 'coder', age: 20}
+
+// user 와 user2 에 할당된 reference가 같은곳을 바라보고 있기 때문! 
+
+// old way
+// new way
