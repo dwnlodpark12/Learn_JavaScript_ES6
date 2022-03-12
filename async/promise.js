@@ -69,8 +69,11 @@ fetchNumber
     getHen()
     .then(getEgg)
     .catch(error => {
-      return '🥩'; 
+      return '🐖'; 
     })
     .then(cook)
+    .catch(error => {
+      return '🥩'; 
+    })
     .then(console.log)
     .catch(console.log);
