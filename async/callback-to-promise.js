@@ -35,7 +35,7 @@ const userStorage = new UserStorage();
 const id = prompt('Enter your ID'); 
 const password = prompt('Enter your password'); 
 
-// new Promise refactoring! 
+// new Promise refactoring 
 userStorage
 .loginUser(id, password)
 .then(userStorage.getRoles)
