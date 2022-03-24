@@ -91,3 +91,19 @@ function surprise(operator) {
 // surprise(substract); // NaN (surprise 함수 안의 operator 인자값을 추가 하지 않았을 때)
 surprise(substract); // 3
 surprise(divide); // 3
+
+// 3. 연산자
+// false : 0, -0, '', null, undefined, NaN
+// true : -1, 'something', []
+let num; // undefined - 값이 할당되어 있지 않는다면 false이다 
+if(num) {
+  console.log('true!');
+}else {
+  console.log('false..');
+}
+
+num && console.log(num); // console창 출력 X 
+
+num = 9;
+
+num && console.log(num); // 9 
