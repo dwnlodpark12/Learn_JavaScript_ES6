@@ -107,3 +107,51 @@ num && console.log(num); // console창 출력 X
 num = 9;
 
 num && console.log(num); // 9 
+
+let obj3 = {
+  name: 'hyerin', 
+  age: 19
+}; 
+if(obj3) {
+  console.log(obj3.name);  
+}
+
+obj3 && console.log(obj3.name); 
+
+//  4. class && callback
+
+class Counter {
+  constructor(runEveryFiveTimes) {
+    this.counter = 0;
+    this.callback = runEveryFiveTimes;
+  }
+
+  increase() {
+    this.counter++;
+    console.log(this.counter);
+
+    if(this.counter % 5 === 0) {
+      // runIf5Times(this.counter);
+    }
+  }
+}
+
+const coolCounter = new Counter(); 
+
+function printSomthing(num) {
+  console.log(`yo!😏${num}`);
+}
+function alertNum(num) {
+  alert(`WOW! ${num}`);
+}
+
+coolCounter.increase(printSomthing); // 1
+coolCounter.increase(printSomthing); // 2
+coolCounter.increase(printSomthing); // 3
+coolCounter.increase(printSomthing); // 4
+coolCounter.increase(printSomthing); // yo!😏
+coolCounter.increase(printSomthing); 
+coolCounter.increase(printSomthing); 
+coolCounter.increase(printSomthing); 
+coolCounter.increase(printSomthing); 
+coolCounter.increase(alertNum);
