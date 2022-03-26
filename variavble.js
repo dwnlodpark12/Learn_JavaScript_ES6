@@ -1,5 +1,5 @@
 // const & let - 새로운 변수 선언 방식
-// - 블록 단위 {  } 로 변수의 범위가 제한되었음 (block scope)
+// - 블록 단위 {  } 로 변수의 범위가 제한됨 (block scope)
 // - const : 한번 선언한 값에 대해서 변경할 수 없음 (상수)
 // - let : 한번 선언한 값에 대해서 다시 선언할 수 없음
 
@@ -58,3 +58,41 @@ function sumAllNumbers() { // 2
 }
 
 var i = 10; // 3
+
+// ======================
+
+// ES6 - {  } 단위로 변수의 범위가 제한됨
+
+let sum = 0; 
+for (let i = 0; i <= 5; i++) {
+  sum = sum + 1;
+}
+console.log(sum);   // 10
+console.log(i);    //  Uncaught ReferenceError : i is not defined
+
+
+// ES6 - const 로 지정한 값 변경 불가능
+// 하지만, 객체나 배열의 내부는 변경할 수 있다. 
+const exam = {};
+exam.name = 'hyerin';
+exam.age = 20;
+console.log(exam);   // {name: 'hyerin', age: 20}
+
+const exam2 = [];
+exam2.push(10);
+exam2.push(20);
+console.log(exam2);   // [10, 20]
+
+function somthing () {
+  {
+    let x;
+    {
+      // 새로운 블록 안에 새로운 x의 스코프가 생성
+      const x = 'sneaky';
+      x = 'foo';  // 위에 이미 const로 x를 선언했으므로 다시 ㅏㅄ을 대입하면 에러 발생
+    }
+    // 이전 블록 범위로 돌아왔기 때문에 'let x'에 해당하는 메모리에 값을 대입
+    x = 'bar';
+    // let x = inner; // Uncaught SyntaxError : Identifier 'x' has aleady been declared
+  }
+}
