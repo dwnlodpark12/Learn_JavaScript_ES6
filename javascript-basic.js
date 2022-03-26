@@ -132,26 +132,31 @@ class Counter {
 
     if(this.counter % 5 === 0) {
       // runIf5Times(this.counter);
+      if(this.callback) this.callback(this.counter);
+      this.callback && this.callback(this.counter)
     }
   }
 }
 
-const coolCounter = new Counter(); 
+const coolCounter = new Counter(printSomthing); 
 
 function printSomthing(num) {
-  console.log(`yo!😏${num}`);
+  console.log(`WOW!😏 ${num}`);
 }
 function alertNum(num) {
-  alert(`WOW! ${num}`);
+  alert(`Alert!!! ${num}`);
 }
 
-coolCounter.increase(printSomthing); // 1
-coolCounter.increase(printSomthing); // 2
-coolCounter.increase(printSomthing); // 3
-coolCounter.increase(printSomthing); // 4
-coolCounter.increase(printSomthing); // yo!😏
-coolCounter.increase(printSomthing); 
-coolCounter.increase(printSomthing); 
-coolCounter.increase(printSomthing); 
-coolCounter.increase(printSomthing); 
-coolCounter.increase(alertNum);
+coolCounter.increase(); // 1
+coolCounter.increase(); // 2
+coolCounter.increase(); // 3
+coolCounter.increase(); // 4
+coolCounter.increase(); // yo!😏
+coolCounter.increase(); 
+coolCounter.increase(); 
+coolCounter.increase(); 
+coolCounter.increase(); 
+coolCounter.increase();
+
+const printCounter = new Counter(printSomthing);
+const alertCounter = new Counter(alertNum);
